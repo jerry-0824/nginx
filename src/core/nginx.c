@@ -4,6 +4,60 @@
  * Copyright (C) Nginx, Inc.
  */
 
+/*
+
+[code.nginx] Nginx简介
+链接：https://www.jianshu.com/p/56b6fb997117
+
+零、Nginx简介
+[00] Nginx（发音同engine x）是一个网页服务器，它能反向代理HTTP, HTTPS, SMTP, POP3, IMAP的协议链接，以及一个负载均衡器和一个HTTP缓存。 -- 维基百科
+
+零、Nginx的功能特性
+[00] Nginx服务器功能丰富，既可以作为HTTP服务器，也可以作为反向代理服务器或者邮件服务器，能够快速响应静态页面（HTML）的请求，
+支持FastCGI、SSL、Virtual Host、URL Rewrite、HTTP Basic Auth、Gzip等大量使用功能，并且支持更多的第三方功能模块的扩展。
+
+零、Nginx的功能分类
+[00] Nginx的基本功能服务大体分为基本HTTP服务、高级HTTP服务和邮件服务等三大类。
+Nginx提供基本HTTP服务，可以作为HTTP代理服务器和反向代理服务器，支持通过缓存加速访问，可以完成简单的负载均衡和容错，支持包过滤功能，支持SSL等。
+Nginx提供高级HTTP服务，可以进行自定服务，支持虚拟主机，支持URL重定向，支持网络监控，支持媒体传输等。
+Nginx作为邮件代理服务器是最早开发这个产品的目的之一，它支持IMAP/POP3代理服务功能，支持内部SMTP代理服务功能。
+
+一、基本HTTP服务
+[00] 在Nginx提供的基本HTTP服务中，主要包含如下功能特性：
+[01] 处理静态文件（如HTML静态网页及请求），处理索引文件以及支持自动索引。
+[02] 打开并自行管理文件描述符缓存。
+[03] 提供反向代理服务，并且可以使用缓存加速反向代理，同时完成简单负载及容错。
+[04] 提供远程FastCGI服务的缓存机制，加速访问，同时完成简单的负载均衡以及容错。
+[05] 使用Nginx的模块化特性提供过滤器功能。
+Nginx基本过滤器包括gzip压缩、ranges支持、chunked响应、XSLT、SSI以及图像缩放等。
+其中，针对包含多个SSI的页面，经由FastCGI或反向代理，SSI过滤器可以并行处理。
+[06] 支持HTTP下的安全套接层安全协议SSL。
+
+二、高级HTTP服务
+[00] 在Nginx提供的高级HTTP服务中，主要包含以下功能特性：
+[01] 支持基于名字和IP的虚拟主机设置
+[02] 支持HTTP/1.0中的KEEP-Alive模式和管线（PipeLined）模型连接。
+[03] 支持重新加载配置以及在线升级时，无须中断正在处理的请求。
+[04] 自定义访问日志格式、带缓存的日志写操作以及快速日志轮转。
+[05] 提供3xx~5xx错误代码重定向功能。
+[06] 支持重写（Rewrite）模块扩展。
+[07] 支持HTTP DAV模块，从而为Http WebDAV提供PUT、DELETE、MKCOL、COPY以及MOVE方法。
+[08] 支持FLV流和MP4流传输
+[09] 支持网络监控，包括基于客户端IP地址和HTTP基本认证机制的访问控制、速度限制、来自同一地址的同时连接数或请求数限制等。
+[10] 支持嵌入Perl语言。
+
+三、邮件代理服务
+[00] Nginx提供邮件代理服务也是其基本开发需求之一，主要包含以下功能特性：
+[01] 支持使用外部HTTP认证服务器重定向用户到IMAP/POP3后端，
+并支持IMAP认证方式（LOGIN、AUTH LOGIN/PLAIN/CRAM-MD5）和POP3认证方式（USER/PASS、APOP、AUTH LOGIN/PLAIN/CRAM-MD5）。
+[02] 支持使用外部HTTP认证服务器认证用户后重定向连接到内部SMTP后端，
+并支持SMTP认证方式（AUTH LOGIN/PLAIN/CRAM-MD5）。
+[03] 支持邮件代理服务下的安全套接层安全协议SSL。
+[04] 支持纯文本通信协议的拓展协议STARTTLS。
+[05] Nginx具备完善的邮件代理服务器功能。
+
+*/
+
 
 #include <ngx_config.h>
 #include <ngx_core.h>
